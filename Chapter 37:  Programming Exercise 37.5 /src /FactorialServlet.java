@@ -39,7 +39,21 @@ import jakarta.servlet.http.HttpServletResponse;
             }
             out.println("</table>");
               }
-          }
+        } catch (NumberFormatException e) {
+          out.println("<p>Invalid input. Please enter a valid number.</p>");
+        } finally {
+          out.println("</body>");
+          out.println("</html>");
+          out.close();
+        }
+      }
+      private BigInteger calculateFactorial(int n) {
+        BigInteger result = BigInteger.ONE;
+        for (int i = 2; i <= n; i++) {
+          result = result.multiply(BigInteger.valueOf(i));
+        }
+        return result;
+      }
         }
       }
   }
